@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group" ng-class="{
+           'has-success': message == 'Enjoy!' || message == 'Too much!', 
+           'has-error': message == 'Please enter data first'  
+           }">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             ng-model="dishes"
+             class="form-control">
+         </div>
+         <div class="form-group">
+             <button ng-click="checkIfTooMuch()" class="btn btn-default">Check If Too Much</button>
+         </div>
+         <div class="form-group message" ng-class="{
+           'text-success': message == 'Enjoy!' || message == 'Too much!',  
+           'text-danger': message == 'Please enter data first'  
+           }">
+           {{message}}
+         </div>
+  
+   </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

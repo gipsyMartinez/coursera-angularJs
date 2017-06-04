@@ -1,0 +1,20 @@
+(function(){
+'use strict';
+var app = angular.module('LunchCheck', []);
+
+app.controller("LunchCheckController", LunchCheckController);
+
+LunchCheckController.$inject = ['$scope']
+function LunchCheckController($scope){
+    $scope.message = '';
+    $scope.dishes = '';
+    $scope.checkIfTooMuch = function(){
+        if($scope.dishes == '') {
+            $scope.message = 'Please enter data first';
+            return;
+        }
+        var dishesArray = $scope.dishes.split(',').filter(function(v){return v.trim() !== ''});
+        $scope.message = dishesArray.length > 3 ? 'Too much!' : 'Enjoy!';
+    }
+}
+})();
