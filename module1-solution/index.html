@@ -25,6 +25,7 @@
          <div class="form-group">
              <button ng-click="checkIfTooMuch()" class="btn btn-default">Check If Too Much</button>
          </div>
+         <div>{{messageEmptyItem}}</div>
          <div class="form-group message" ng-class="{
            'text-success': message == 'Enjoy!' || message == 'Too much!',  
            'text-danger': message == 'Please enter data first'  
